@@ -1,0 +1,60 @@
+
+@if (puzzle() === "panama-canal") {
+  <p class="instructions">
+    Make the grid say "PANAMA CANAL".
+  </p>
+
+  <div class="frame panama-canal" [ngClass]="{ 'complete': slider().complete(), 'initialised': initialised() }">
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <br/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+
+    <tile [start]="0" text="C"/>
+    <tile [start]="1" text="A"/>
+    <tile [start]="2" text="N"/>
+    <tile [start]="3" text="A"/>
+    <tile [start]="4" text="M"/>
+    <tile [start]="5" text="A"/>
+    <tile [start]="6" text="P"/>
+    <tile [start]="7" text="A"/>
+    <tile [start]="8" text="N"/>
+    <tile [start]="9" text="A"/>
+    <tile [start]="10" text="L"/>
+    <blank [start]="11"/>
+  </div>
+} @else if (puzzle() === "bull-pen") {
+  <p class="instructions">
+    Put the bulls in order.
+  </p>
+
+  <div class="frame bull-pen" [ngClass]="{ 'complete': slider().complete(), 'initialised': initialised() }">
+    <fake-location class="rm lm"/>
+    <location class="lm tm rm lb tb rb"/>
+    <br/>
+    <location class="lb tb lm tm rm"/>
+    <location class="tm lm rm"/>
+    <location class="rb tb rm tm lm"/>
+    <br/>
+    <location class="lb bb tm bm rm lm"/>
+    <location class="bb tm bm rm lm"/>
+    <location class="rb bb tm bm rm lm"/>
+
+    <tile [start]="1" text="1"/>
+    <tile [start]="2" text="2"/>
+    <tile [start]="3" text="6"/>
+    <tile [start]="4" text="5"/>
+    <tile [start]="5" text="4"/>
+    <tile [start]="6" text="3"/>
+    <blank [start]="0"/>
+  </div>
+}

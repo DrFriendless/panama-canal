@@ -1,0 +1,84 @@
+.frame {
+  position: static;
+  color: black;
+  background: transparent;
+  line-height: 0;
+}
+.frame.panama-canal {
+  border: 2px solid black;
+  --full-width: min(99vw, 800px);
+  --location-gap: 10px;
+  --location-side: calc((var(--full-width) - 7 * var(--location-gap)) / 6);
+  width: var(--full-width);
+  height: calc(var(--location-side) * 2 + var(--location-gap) * 3);
+}
+.frame.bull-pen {
+  --full-width: min(99vw, 600px);
+  --location-gap: 10px;
+  --location-side: calc((var(--full-width) - 6 * var(--location-gap)) / 3);
+  width: calc(var(--location-side) * 3 + var(--location-gap) * 7);
+  height: calc(var(--location-side) * 3 + var(--location-gap) * 6);
+}
+.frame.complete {
+  background: lawngreen;
+}
+.location, .fake-location {
+  width: var(--location-side);
+  height: var(--location-side);
+  margin: 0;
+  display: inline-block;
+}
+.panama-canal .location {
+  margin: var(--location-gap) var(--location-gap) 0 0;
+}
+.bull-pen .location {
+  min-width: var(--location-side);
+  min-height: var(--location-side);
+}
+.bull-pen location.lb {
+  border-left: 2px solid black;
+}
+.bull-pen location.rb {
+  border-right: 2px solid black;
+}
+.bull-pen location.tb {
+  border-top: 2px solid black;
+}
+.bull-pen location.bb {
+  border-bottom: 2px solid black;
+}
+.rm .location, .rm .fake-location {
+  margin-right: var(--location-gap);
+}
+.bm .location, .bm .fake-location {
+  margin-bottom: var(--location-gap);
+}
+.lm .location, .lm .fake-location {
+  margin-left: var(--location-gap);
+}
+.tm .location, .tm .fake-location {
+  margin-top: var(--location-gap);
+}
+.tile {
+  position: absolute;
+  width: var(--location-side);
+  height: var(--location-side);
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: calc(var(--location-side) / 2);
+  line-height: calc(var(--location-side) * 0.75 + var(--location-gap));
+  text-align: center;
+  margin: var(--location-gap) 0 0 var(--location-gap);
+}
+.initialised .tile {
+  transition: left .3s linear, top .3s linear;
+}
+.tile span {
+  vertical-align: middle;
+}
+.blank {
+  position: absolute;
+  width: var(--location-side);
+  height: var(--location-side);
+  background: transparent;
+}
