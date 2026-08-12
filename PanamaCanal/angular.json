@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FAQWidget": {
+    "PanamaCanal": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,14 +12,56 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "./dist",
+            "styles": [ "./src/styles-panama-canal.scss"],
+            "outputPath": "./dist-pc",
             "index": false,
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.json",
-            "browser": "./src/main.ts",
-            "sourceMap": false
+            "browser": "./src/main-panama-canal.ts",
+            "sourceMap": false,
+            "preserveSymlinks": true,
+            "stylePreprocessorOptions": {
+              "includePaths": ["."]
+            }
+          },
+          "configurations": {
+            "debug": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.debug.ts"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "BullPen": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "styles": [ "./src/styles-bull-pen.scss"],
+            "outputPath": "./dist-bp",
+            "index": false,
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.json",
+            "browser": "./src/main-bull-pen.ts",
+            "sourceMap": false,
+            "preserveSymlinks": true,
+            "stylePreprocessorOptions": {
+              "includePaths": ["."]
+            }
           },
           "configurations": {
             "debug": {

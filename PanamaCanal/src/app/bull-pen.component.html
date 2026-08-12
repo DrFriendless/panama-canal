@@ -1,0 +1,26 @@
+<div class="bull-pen">
+  <p class="instructions">
+    Put the bulls in order.
+  </p>
+
+  <div class="frame" [ngClass]="{ 'complete': slider().complete() }">
+    <fake-location [margins]="'lt'"/>
+    <location [padding]="'ltr'" class="lb tb rb"/>
+    <br/>
+    <location [padding]="'lt'" class="lb tb"/>
+    <location [padding]="'ltr'"/>
+    <location [padding]="'tr'" class="rb tb"/>
+    <br/>
+    <location [padding]="'ltb'" class="lb bb"/>
+    <location [padding]="'ltrb'" class="bb"/>
+    <location [padding]="'trb'" class="rb bb"/>
+
+    <tile [start]="1" text="1"/>
+    <tile [start]="2" text="2"/>
+    <tile [start]="3" text="6"/>
+    <tile [start]="4" text="5"/>
+    <tile [start]="5" text="4"/>
+    <tile [start]="6" text="3"/>
+    <blank [start]="0"/>
+  </div>
+</div>

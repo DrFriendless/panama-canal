@@ -3,13 +3,15 @@
   "version": "2.0.0",
   "scripts": {
     "serve": "ng serve",
-    "build": "ng build --configuration debug"
+    "build-panama-canal": "ng build PanamaCanal --configuration debug",
+    "build-bull-pen": "ng build BullPen --configuration debug"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "v21-lts",
     "@angular/core": "v21-lts",
     "@angular/platform-browser": "v21-lts",
+    "sass": "^1.102.0",
     "zone.js": "^0.15.1"
   },
   "devDependencies": {

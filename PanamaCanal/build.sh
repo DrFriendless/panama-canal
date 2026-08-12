@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 rm -rf ./dist/*
-npm run build
+rm -rf ./dist-pc/*
+rm -rf ./dist-bp/*
+npm run build-panama-canal
+npm run build-bull-pen

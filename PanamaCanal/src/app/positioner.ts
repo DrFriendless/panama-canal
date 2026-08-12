@@ -1,11 +1,11 @@
-import {computed, Signal} from "@angular/core";
+import { Signal} from "@angular/core";
 import {LocationComponent} from "./location.component";
 
 /**
  * In charge of figuring out where things go.
  */
 export class Positioner {
-  offsets: Signal<{dx: number, dy: number}> = computed(() => {
+  offsets(): {dx: number, dy: number} {
     if (this.locations().length > 0) {
       const pe0 = this.locations()[0].element.nativeElement.parentElement;
       // find the top left corner of the grid, whether there is a tile there or not.
@@ -22,15 +22,20 @@ export class Positioner {
     } else {
       return {dx: 0, dy: 0};
     }
-  });
+  };
 
   constructor(private locations: Signal<readonly LocationComponent[]>) {
   }
 
-  position(loc: number): { left: number, top: number } {
+  position(loc: number): { left: string, top: string } {
     const l = this.locations()[loc];
     const ne = l.element.nativeElement;
     const offs = this.offsets();
-    return {left: ne.offsetLeft + offs.dx, top: ne.offsetTop + offs.dy};
+    let left = `${ne.offsetLeft + offs.dx}px`;
+    let top = `${ne.offsetTop + offs.dy}px`;
+    if (l.isOnTheLeft()) {
+      left = `calc(${left} - var(--location-gap))`;
+    }
+    return {left, top };
   }
 }

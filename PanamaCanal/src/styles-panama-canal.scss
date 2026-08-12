@@ -1,0 +1,43 @@
+.panama-canal {
+  .frame {
+    position: static;
+    color: black;
+    line-height: 0;
+    border: 2px solid black;
+    --full-width: min(99vw, 800px);
+    --location-gap: 10px;
+    --location-side: calc((var(--full-width) - 7 * var(--location-gap)) / 6 - 1px);
+    width: var(--full-width);
+    height: calc(var(--location-side) * 2 + var(--location-gap) * 3);
+  }
+  .frame.complete {
+    background: lawngreen;
+  }
+  location {
+    //width: var(--location-side);
+    //height: var(--location-side);
+    display: inline-block;
+  }
+  .tile {
+    position: absolute;
+    width: var(--location-side);
+    height: var(--location-side);
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: calc(var(--location-side) / 2);
+    line-height: calc(var(--location-side) * 0.75 + var(--location-gap));
+    text-align: center;
+    margin: var(--location-gap) 0 0 var(--location-gap);
+    transition: left .3s linear, top .3s linear;
+    span {
+      vertical-align: middle;
+    }
+    background: rgba(255, 0, 0, 0.25);
+  }
+  .blank {
+    position: absolute;
+    width: var(--location-side);
+    height: var(--location-side);
+    background: transparent;
+  }
+}

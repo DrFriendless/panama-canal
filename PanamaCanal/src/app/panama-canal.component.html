@@ -1,0 +1,35 @@
+
+<div class="panama-canal">
+  <p class="instructions">
+    Make the grid say "PANAMA CANAL".
+  </p>
+
+  <div class="frame" [ngClass]="{ 'complete': slider().complete() }">
+    <location [margins]="'ltr'"/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <location/>
+    <br/>
+    <location [margins]="'ltrb'"/>
+    <location [margins]="'trb'"/>
+    <location [margins]="'trb'"/>
+    <location [margins]="'trb'"/>
+    <location [margins]="'trb'"/>
+    <location [margins]="'trb'"/>
+
+    <tile [start]="0" text="C"/>
+    <tile [start]="1" text="A"/>
+    <tile [start]="2" text="N"/>
+    <tile [start]="3" text="A"/>
+    <tile [start]="4" text="M"/>
+    <tile [start]="5" text="A"/>
+    <tile [start]="6" text="P"/>
+    <tile [start]="7" text="A"/>
+    <tile [start]="8" text="N"/>
+    <tile [start]="9" text="A"/>
+    <tile [start]="10" text="L"/>
+    <blank [start]="11"/>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import {computed, signal, Signal} from "@angular/core";
 import {BlankComponent} from "./blank.component";
 import {TileComponent} from "./tile.component";
-import {Path, PuzzleType} from "./app.component";
+import {Path, PuzzleType} from "./interfaces";
 
 /**
  * In charge of sliding tiles around.
@@ -26,7 +26,7 @@ export class Slider {
   ];
   complete = signal<boolean>(false);
   paths = computed(() => {
-    if (this.puzzleType() === "panama-canal") {
+    if (this.puzzleType === "panama-canal") {
       return this.PANAMA_CANAL_PATHS;
     } else {
       return this.BULL_PEN_PATHS;
@@ -35,7 +35,7 @@ export class Slider {
 
   constructor(private blanks: Signal<readonly BlankComponent[]>,
               private tiles: Signal<readonly TileComponent[]>,
-              private puzzleType: Signal<PuzzleType>) {
+              private puzzleType: PuzzleType) {
   }
 
   private tileAt(loc: number) {
@@ -43,7 +43,7 @@ export class Slider {
   }
 
   private currentWord(): string {
-    switch (this.puzzleType()) {
+    switch (this.puzzleType) {
       case "panama-canal": {
         let s = '';
         for (let i=0; i<12; i++) {

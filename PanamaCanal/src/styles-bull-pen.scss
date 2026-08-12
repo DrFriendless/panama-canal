@@ -1,0 +1,61 @@
+.bull-pen {
+  .frame {
+    position: static;
+    color: black;
+    background: transparent;
+    line-height: 0;
+    --full-width: min(99vw, 600px);
+    --location-gap: 10px;
+    --location-side: calc((var(--full-width) - 6 * var(--location-gap)) / 3 - 1px);
+    width: calc(var(--location-side) * 3 + var(--location-gap) * 4);
+    height: calc(var(--location-side) * 3 + var(--location-gap) * 4);
+  }
+  .frame.complete {
+    background: lawngreen;
+  }
+  location {
+    display: inline-block;
+    min-width: var(--location-side);
+    min-height: var(--location-side);
+  }
+  fake-location {
+    width: var(--location-side);
+    height: var(--location-side);
+    margin: 0;
+    display: inline-block;
+  }
+  location.lb {
+    border-left: 2px solid black;
+  }
+  location.rb {
+    border-right: 2px solid black;
+  }
+  location.tb {
+    border-top: 2px solid black;
+  }
+  location.bb {
+    border-bottom: 2px solid black;
+  }
+  .tile {
+    position: absolute;
+    width: var(--location-side);
+    height: var(--location-side);
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: calc(var(--location-side) / 2);
+    line-height: calc(var(--location-side) * 0.75 + var(--location-gap));
+    text-align: center;
+    margin: var(--location-gap) 0 0 var(--location-gap);
+    transition: left .3s linear, top .3s linear;
+    background: rgba(128, 128, 255, 0.25);
+  }
+  .tile span {
+    vertical-align: middle;
+  }
+  .blank {
+    position: absolute;
+    width: var(--location-side);
+    height: var(--location-side);
+    background: transparent;
+  }
+}
